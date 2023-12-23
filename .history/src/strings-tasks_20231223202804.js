@@ -497,68 +497,18 @@ function encodeToRot13(str) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  const cardDeck = [
-    'A♣',
-    '2♣',
-    '3♣',
-    '4♣',
-    '5♣',
-    '6♣',
-    '7♣',
-    '8♣',
-    '9♣',
-    '10♣',
-    'J♣',
-    'Q♣',
-    'K♣',
-    'A♦',
-    '2♦',
-    '3♦',
-    '4♦',
-    '5♦',
-    '6♦',
-    '7♦',
-    '8♦',
-    '9♦',
-    '10♦',
-    'J♦',
-    'Q♦',
-    'K♦',
-    'A♥',
-    '2♥',
-    '3♥',
-    '4♥',
-    '5♥',
-    '6♥',
-    '7♥',
-    '8♥',
-    '9♥',
-    '10♥',
-    'J♥',
-    'Q♥',
-    'K♥',
-    'A♠',
-    '2♠',
-    '3♠',
-    '4♠',
-    '5♠',
-    '6♠',
-    '7♠',
-    '8♠',
-    '9♠',
-    '10♠',
-    'J♠',
-    'Q♠',
-    'K♠',
-  ];
+  const suits = '♣♦♥♠';
+  const ranks = 'A2345678910JQK';
+  const suit = value.slice(-1);
+  const rank = value.slice(0, -1);
+  const suitIndex = suits.indexOf(suit);
+  const rankIndex = ranks.indexOf(rank);
 
-  for (let i = 0; i < cardDeck.length; i += 1) {
-    if (cardDeck[i] === value) {
-      return i;
-    }
+  if (suitIndex !== -1 && rankIndex !== -1) {
+    return suitIndex * 13 + rankIndex;
+  } else {
+    return -1;
   }
-
-  return -1;
 }
 
 module.exports = {

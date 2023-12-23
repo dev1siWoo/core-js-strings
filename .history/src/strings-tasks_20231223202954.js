@@ -552,7 +552,7 @@ function getCardId(value) {
     'K♠',
   ];
 
-  for (let i = 0; i < cardDeck.length; i += 1) {
+  for (let i = 0; i < cardDeck.length; i+1) {
     if (cardDeck[i] === value) {
       return i;
     }

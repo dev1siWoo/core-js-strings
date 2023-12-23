@@ -337,9 +337,12 @@ function isPalindrome(str) {
  */
 function findLongestWord(sentence) {
   const words = sentence.split(' ');
-  const longestWord = words.reduce((longest, current) => {
-    return current.length > longest.length ? current : longest;
-  }, '');
+  let longestWord = '';
+  for (const word of words) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
   return longestWord;
 }
 
@@ -354,9 +357,8 @@ function findLongestWord(sentence) {
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
 function reverseWords(str) {
-  const reversedWords = str
-    .split(' ')
-    .map((word) => word.split('').reverse().join(''));
+  const words = str.split(' ');
+  const reversedWords = words.map((word) => word.split('').reverse().join(''));
   return reversedWords.join(' ');
 }
 
@@ -371,13 +373,8 @@ function reverseWords(str) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(str) {
-  return str
-    .split('')
-    .map((char) =>
-      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
-    )
-    .join('');
+function invertCase(/* str */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -393,8 +390,8 @@ function invertCase(str) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`;
+function getStringFromTemplate(/* firstName, lastName */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -407,9 +404,8 @@ function getStringFromTemplate(firstName, lastName) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(value) {
-  const match = value.match(/Hello, (.+?)!/) || [];
-  return match[1] || '';
+function extractNameFromTemplate(/* value */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -423,8 +419,8 @@ function extractNameFromTemplate(value) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag(str) {
-  return str.replace(/^<|>$/g, '');
+function unbracketTag(/* str */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -442,8 +438,8 @@ function unbracketTag(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(str) {
-  return str.split(';').filter((email) => email.trim() !== '');
+function extractEmails(/* str */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -462,14 +458,8 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-  return str.replace(/[a-zA-Z]/g, (char) => {
-    const isUpperCase = char === char.toUpperCase();
-    const offset = isUpperCase ? 65 : 97;
-    return String.fromCharCode(
-      ((char.charCodeAt(0) - offset + 13) % 26) + offset
-    );
-  });
+function encodeToRot13(/* str */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -496,69 +486,8 @@ function encodeToRot13(str) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(value) {
-  const cardDeck = [
-    'A♣',
-    '2♣',
-    '3♣',
-    '4♣',
-    '5♣',
-    '6♣',
-    '7♣',
-    '8♣',
-    '9♣',
-    '10♣',
-    'J♣',
-    'Q♣',
-    'K♣',
-    'A♦',
-    '2♦',
-    '3♦',
-    '4♦',
-    '5♦',
-    '6♦',
-    '7♦',
-    '8♦',
-    '9♦',
-    '10♦',
-    'J♦',
-    'Q♦',
-    'K♦',
-    'A♥',
-    '2♥',
-    '3♥',
-    '4♥',
-    '5♥',
-    '6♥',
-    '7♥',
-    '8♥',
-    '9♥',
-    '10♥',
-    'J♥',
-    'Q♥',
-    'K♥',
-    'A♠',
-    '2♠',
-    '3♠',
-    '4♠',
-    '5♠',
-    '6♠',
-    '7♠',
-    '8♠',
-    '9♠',
-    '10♠',
-    'J♠',
-    'Q♠',
-    'K♠',
-  ];
-
-  for (let i = 0; i < cardDeck.length; i += 1) {
-    if (cardDeck[i] === value) {
-      return i;
-    }
-  }
-
-  return -1;
+function getCardId(/* value */) {
+  throw new Error('Not implemented');
 }
 
 module.exports = {
